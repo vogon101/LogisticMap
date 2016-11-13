@@ -1,6 +1,6 @@
 from utils import *
 
-def gen (folder = "Rdep/", get_rates=lambda i: np.linspace(i, i+0.9, 10), rate_gen_min = 0, rate_gen_max = 5, num_gens=60):
+def gen (folder = "Rdep/", get_rates=lambda i: np.linspace(i, i+0.9, 10), rate_gen_min = 0, rate_gen_max = 5, num_gens=50):
 
     print("Generating R-Dependant Graphs")
 

@@ -1,8 +1,19 @@
-from pynamical import save_fig, title_font, label_font
-import pandas as pd, numpy as np, matplotlib.pyplot as plt, matplotlib.cm as cm
+import pandas as pd, numpy as np, matplotlib.pyplot as plt, matplotlib.cm as cm, matplotlib.font_manager as fm
+
+# CODE FROM https://github.com/gboeing/pynamical to reduce dependancies
+def save_fig(filename='image', folder='images', dpi=300, bbox_inches='tight', pad=0.1):
+    plt.savefig('{}/{}.png'.format(folder, filename), dpi=dpi, bbox_inches=bbox_inches, pad_inches=pad)
+
+_font_family = ['Helvetica', 'Arial', 'sans-serif']
+title_font = fm.FontProperties(family=_font_family, style='normal', size=20, weight='normal', stretch='normal')
+label_font = fm.FontProperties(family=_font_family, style='normal', size=16, weight='normal', stretch='normal')
+
+
+
 
 LINE_NONE = -1
 LINE_RMO_OVER_R = -2
+
 
 def logistic_map(pop, rate):
     return pop * rate * (1 - pop)
