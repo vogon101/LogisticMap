@@ -1,5 +1,8 @@
-from pynamical import simulate, bifurcation_plot, save_fig, title_font, label_font
-import pandas as pd, numpy as np, IPython.display as display, matplotlib.pyplot as plt, matplotlib.cm as cm
+from pynamical import save_fig, title_font, label_font
+import pandas as pd, numpy as np, matplotlib.pyplot as plt, matplotlib.cm as cm
+
+LINE_NONE = -1
+LINE_RMO_OVER_R = -2
 
 def logistic_map(pop, rate):
     return pop * rate * (1 - pop)
@@ -70,7 +73,7 @@ def genPlotRdep(pops, name, start, miny =0, maxy=1):
     #print("HELLO")
     ax.grid(True)
     ax.set_ylim([miny, maxy])
-    ax.legend(title='Growth Rate', loc=3, bbox_to_anchor=(1, 0.525))
+    ax.legend(title='Growth Rate', loc=3, bbox_to_anchor=(1, 0.0))
     ax.set_title('Logistic Model Results by Growth Rate Between ' + min_rate + ' and ' + max_rate + '\nStarting Population: ' + str(start), fontproperties=title_font)
     ax.set_xlabel('Generation', fontproperties=label_font)
     ax.set_ylabel('Population', fontproperties=label_font)
@@ -79,7 +82,7 @@ def genPlotRdep(pops, name, start, miny =0, maxy=1):
 
     plt.clf()
 
-def genPlotSdep(pops, name, rate, miny =0, maxy=1):
+def genPlotSdep(pops, name, rate, miny =0, maxy=1, hline = -1):
 
     #print(pops)
 
@@ -92,10 +95,14 @@ def genPlotSdep(pops, name, rate, miny =0, maxy=1):
     #print("HELLO")
     ax.grid(True)
     ax.set_ylim([miny, maxy])
-    ax.legend(title='Starting Population', loc=3, bbox_to_anchor=(1, 0.525))
+    ax.legend(title='Starting Population', loc=3, bbox_to_anchor=(1, 0.0))
     ax.set_title('Logistic Model Results by Starting Value - Rate: ' + str(rate), fontproperties=title_font)
     ax.set_xlabel('Generation', fontproperties=label_font)
     ax.set_ylabel('Population', fontproperties=label_font)
+
+    if hline != -1:
+        print(hline)
+        plt.hlines(hline, 0,1000)
 
     save_fig(name)
 
