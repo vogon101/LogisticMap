@@ -1,0 +1,3 @@
+# LogisticMap Investigation
+
+This code 
