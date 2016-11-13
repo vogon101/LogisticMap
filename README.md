@@ -1,3 +1,3 @@
 # LogisticMap Investigation
 
-This code 
+This code is used for generating graphs of the LogisticMap
