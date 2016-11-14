@@ -1,0 +1,2 @@
+LINE_NONE = -1
+LINE_RMO_OVER_R = -2

@@ -22,7 +22,7 @@ def analyse(pop_i,r):
         print("Logistic map with r=" + str(r) + " and x0="+str(pop_i) + " did not stabilize")
 
 
-for i in range(399, 411):
+for i in range(349, 401):
     analyse(0.5, i/100)
 
 for i in did_stab:

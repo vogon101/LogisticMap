@@ -14,6 +14,8 @@ def gen(starts = np.linspace(0,1,11), folder="Sdep/", generations=50, min_r = 0,
         pops = simulateLogisticMapSdep(num_gens=generations, rate=r, starts=starts)
         pops.applymap(lambda x: '{:03.3f}'.format(x))
 
+        print("Population generated")
+
         if hline_mode == LINE_RMO_OVER_R:
             hline = (r-1)/r
         else: hline = LINE_NONE
